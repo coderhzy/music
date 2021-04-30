@@ -5,6 +5,7 @@ void main() {
   runApp(MyApp());
 }
 
+/// StatelessWidget无状态组件，使用build在构建视图。组件被使用，会调用build方法。
 class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
