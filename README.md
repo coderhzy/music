@@ -1,16 +1,10 @@
 # music
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 1. 初识
+1. Widget-> 原件/组件
+可以放到视图当中被用户使用的东西,看的见或者看不见的(gesture)叫做Widget
+2. State   
+StatelessWidget 无状态 -> 自身不变 -> 性能高 
+StatefulWidget 有状态 -> 自身会变 -> 性能较低
+   
+-----------------------------------------------------------------
