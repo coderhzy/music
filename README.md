@@ -187,3 +187,34 @@ m.removeWhere((key,value) => true);
 m.forEach((keym,value){})
 map((key,map) => MapEntry(key,666));
 
+-----------------------------------------------------------------
+if
+
+switch case
+
+forEach()
+
+for in
+```dart
+for(var key in m){print(key)};
+```
+
+while()
+do while()
+```
+do {
+   print(a);
+   a++;
+}while(a < 5);
+```
+
+try{
+   可能产生运行时错误
+}on RangeError{
+
+}
+catch(
+
+)finaly{
+   无论如何都执行，回收资源
+}
