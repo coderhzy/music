@@ -118,3 +118,25 @@ toString,toInt
 2. 转换对象的方法
 as：是运行时类型，**不建议使用**，实际上没有完成任何转换操作，只是让某个变量按照什么类型来用。
 
+-----------------------------------------------------------------
+**字符串**
+1. 字符串写法
+   1. 'xxx'
+   2. "xxx"
+   3. '''xxx aaa bbb''',多行字符串
+   4. """xxx aaa bbb""",多行字符串
+2. 字符串模板
+   1. var str = 'a=$a';
+   2. var str = 'a=${a}b=${a}'
+3. 字符串对象
+length:表示是有几个字
+codeUnits:按照编码为单位，返回值
+toLowerCase()
+toUpperCase()
+trim()
+replaceAll()
+replaceFrist()
+replaceAllMapped('xx',callback)
+replaceFristMapped('xx',callback)
+substring(5,10); // 5-9
+codeUnitAt(); // 去字符串编码
