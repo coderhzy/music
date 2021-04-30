@@ -140,3 +140,29 @@ replaceAllMapped('xx',callback)
 replaceFristMapped('xx',callback)
 substring(5,10); // 5-9
 codeUnitAt(); // 去字符串编码
+
+-----------------------------------------------------------------
+**数组**
+1. 定长和变长
+定长：a = List(3)
+变长：add()，addAll()
+2. List成员
+length
+[..]
+add(el)
+addAll()
+
+contain() : 返回元素
+indexOf() ：返回索引
+
+sublist(start,[end]); // 不包含最后一个
+
+insert(index,el)
+insertAll(index,[])
+
+remove(el)
+removeAt(index);
+
+forEach();
+map((e) => {}) : 返回Iterable,可迭代对象,可以在最后加上toList()转换成List
+
