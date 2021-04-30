@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
 /// main -> runApp入口
 void main() {
@@ -12,18 +13,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: '我的第一个app',
         home: Scaffold(
-          appBar: AppBar(
-            title: Text('首页'),
-          ),
-          body: Center(
-            child: Column(
-              children: [
-                Cmp1(),
-                Cmp2(),
-              ],
+            appBar: AppBar(
+              title: Text('首页'),
             ),
-          )
-        ));
+            body: Center(
+              child: Column(
+                children: [
+                  Cmp1(),
+                  Cmp2(),
+                  Cmp3(),
+                ],
+              ),
+            )));
   }
 }
 
@@ -54,7 +55,6 @@ class _Cmp2State extends State {
 
   @override
   Widget build(BuildContext context) {
-
     return Row(
       children: [
         Text('a=$a'),
@@ -76,5 +76,26 @@ class Cmp2 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _Cmp2State();
+  }
+}
+
+/// hooks
+class Cmp3 extends HookWidget {
+  @override
+  Widget build(BuildContext context) {
+    var a = useState<int>(0);
+
+    return Row(
+      children: [
+        Text('a=${a.value}'),
+        FlatButton(
+          onPressed: () {
+            a.value++;
+          },
+          child: Text('++'),
+          color: Colors.red,
+        )
+      ],
+    );
   }
 }
