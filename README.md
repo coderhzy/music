@@ -170,4 +170,20 @@ map((e) => {}) : 返回Iterable,可迭代对象,可以在最后加上toList()转
 **泛型**
 泛型不是没有类型，类型可以作为一个特殊参数传进去。
 
+-----------------------------------------------------------------
+**Map**
+1. 没有两个相同的Map，内存中存放的地址不一样
+```dart
+var m = Map<String, int>();
+```
+m.addAll({...})
+
+m.containsKey(key) => bool
+m.containValue(value) => bool
+
+m.remove(key)
+m.removeWhere((key,value) => true);
+
+m.forEach((keym,value){})
+map((key,map) => MapEntry(key,666));
 
