@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music/util/screen_util.dart';
 import 'package:music/pages/home/header.dart';
+import 'package:music/pages/home/banner.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -9,11 +10,9 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.only(top:screen.top + screen.calc(7)),
+        padding: EdgeInsets.only(top: screen.top + screen.calc(7)),
         child: Column(
-          children: [
-           Header()
-          ],
+          children: [Header(), MyBanner()],
         ),
       ),
     );
