@@ -94,7 +94,7 @@ const songList1 = [
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var screen = Screen(context);
+    final screen = Screen(context);
 
     return Scaffold(
       body: DefaultTextStyle(
@@ -133,7 +133,10 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: GlobalBottomNavigationBar(),
+      bottomNavigationBar: GlobalBottomNavigationBar(
+        /// 完成换页操作
+        value: 0,
+      ),
     );
   }
 }

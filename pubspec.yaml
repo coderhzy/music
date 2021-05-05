@@ -46,3 +46,15 @@ flutter:
     - assets/tmp_cover_4.jpg
     - assets/tmp_cover_5.jpg
     - assets/tmp_cover_6.jpg
+
+    - assets/icon_group.png
+    - assets/icon_music.png
+    - assets/icon_Music_disc.png
+    - assets/icon_person.png
+    - assets/icon_video.png
+
+    - assets/icon_group_b.png
+    - assets/icon_music_b.png
+    - assets/icon_Music_disc_b.png
+    - assets/icon_person_b.png
+    - assets/icon_video_b.png

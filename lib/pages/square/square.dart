@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music/widgets/global_bottom_navigation_bar.dart';
 
 class SquarePage extends StatelessWidget {
   @override
@@ -10,8 +11,14 @@ class SquarePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('广场'),
       ),
-      body: Center(
-        child: Text('歌单广场'),
+      body: Container(
+        child: Center(
+          child: Text('歌单广场'),
+        ),
+      ),
+      bottomNavigationBar: GlobalBottomNavigationBar(
+        /// 完成换页操作
+        value: 2,
       ),
     );
   }
