@@ -324,3 +324,27 @@ class a implements interface1{}
    2. 接口 => 提供能力
 
 ------------------------------------------
+
+# music项目开发
+## 阶段一
+```Text
+首页组件构成
+
+lib/pages/home/
+home.dart     // 首页
+header.dart  // 音乐采集识别 + 搜索 + 头像
+banner.dart // header区域轮播图
+category.dart // 功能分类区域
+
+-----------------------------------
+
+lib/pages/widgets
+song_list.dart     // 你的歌单精选站 & 查看更多 & 滚动显示
+recommend_list.dart // 根据Red Down (a)推荐 & 推荐歌曲滚动显示
+global_bottom_navigation_bar.dart // 底部导航栏 & 跳转广场 & 做Hero动画清除
+
+-----------------------------------
+
+lib/router.dart  // 页面导航路由
+```
+![首页成果图](success/home/home.png)
