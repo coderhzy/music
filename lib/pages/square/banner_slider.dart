@@ -6,13 +6,36 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 /// 定义数据
 var items = [
-  {'index': 0, 'title': '111'},
-  {'index': 1, 'title': '222'},
-  {'index': 2, 'title': '333'},
-  {'index': 3, 'title': '444'},
-  {'index': 4, 'title': '555'},
-  {'index': 5, 'title': '666'},
-  {'index': 6, 'title': '777'},
+  {
+    'index': 0,
+    'title': '111',
+    'img': 'assets/tmp_square_cover_1.png',
+  },
+  {
+    'index': 1,
+    'title': '请保持眉梢幻月，因为有人等你',
+    'img': 'assets/tmp_square_cover_2.png',
+  },
+  {
+    'index': 2,
+    'title': '333',
+    'img': 'assets/tmp_square_cover_3.png',
+  },
+  {
+    'index': 3,
+    'title': '444',
+    'img': 'assets/tmp_square_cover_4.png',
+  },
+  {
+    'index': 4,
+    'title': '555',
+    'img': 'assets/tmp_square_cover_5.png',
+  },
+  {
+    'index': 5,
+    'title': '666',
+    'img': 'assets/tmp_square_cover_6.png',
+  },
 ];
 
 class BannerSlider extends HookWidget {
@@ -102,18 +125,47 @@ class BannerSlider extends HookWidget {
                   child: Transform.scale(
                       scale: data['scale'],
                       child: Opacity(
-                          opacity: data['opacity'],
-                          // opacity: 1,
-                          child: Container(
+                        opacity: data['opacity'],
+                        // opacity: 1,
+                        child: Container(
                             width: W,
                             height: H,
-                            decoration: BoxDecoration(color: Colors.blue),
-                            child: Center(
-                                child: Text(item['title'],
-                                    style: TextStyle(
-                                      fontSize: 40,
-                                    ))),
-                          ))));
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius:
+                                    BorderRadius.circular(screen.calc(10)),
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Color(0x66000000),
+                                      blurRadius: screen.calc(20))
+                                ]),
+                            child: ClipRRect(
+                              borderRadius:
+                                  BorderRadius.circular(screen.calc(10)),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Image.asset(
+                                    item['img'],
+                                    width: screen.calc(344),
+                                    height: screen.calc(344),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                        top: screen.calc(18),
+                                        left: screen.calc(16),
+                                        right: screen.calc(16)),
+                                    child: Text(
+                                      item['title'],
+                                      maxLines: 2,
+                                      style:
+                                          TextStyle(fontSize: screen.calc(23)),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )),
+                      )));
             }).toList(),
           ),
         ));
