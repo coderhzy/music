@@ -1,3 +1,4 @@
+import 'package:music/util/system_util.dart';
 import 'package:flutter/material.dart';
 import 'package:music/util/screen_util.dart';
 import 'package:music/pages/home/header.dart';
@@ -96,12 +97,16 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final screen = Screen(context);
 
+    /// 判断Android去除最上方栏
+    setStatusBarStyle(Brightness.light);
+
     return Scaffold(
       body: DefaultTextStyle(
         // 全局默认字体
         style: TextStyle(color: Color(0xff333333)),
         child: SingleChildScrollView(
           child: Container(
+            decoration: BoxDecoration(color: Colors.white),
             padding: EdgeInsets.only(top: screen.top + screen.calc(7)),
             child: Column(
               children: [

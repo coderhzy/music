@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:music/util/system_util.dart';
 import 'package:music/util/screen_util.dart';
+
+import 'package:flutter/material.dart';
 import 'package:music/widgets/global_bottom_navigation_bar.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -34,25 +36,46 @@ class SquarePage extends HookWidget {
     /// 变更状态
     final categoryID = useState(items[0]['id']);
 
+    /// 判断Android去除最上方栏
+    setStatusBarStyle(Brightness.light);
+
     print(args);
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.only(top: screen.top + screen.calc(7)),
-        child: Column(
-          children: [
-            Header(),
-            Category(
-              /// 广场页父级元素传递
-              items: items,
-              value: categoryID.value,
-              onChanged: (id) {
-                categoryID.value = id;
-              },
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(color: Colors.white),
+          ),
+          Container(
+            height: screen.calc(860),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xff959a99), Colors.white],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                // stops: [0, 0.2],
+              ),
             ),
-            BannerSlider(),
-            SquareList(),
-          ],
-        ),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: screen.top + screen.calc(7)),
+            child: Column(
+              children: [
+                Header(),
+                Category(
+                  /// 广场页父级元素传递
+                  items: items,
+                  value: categoryID.value,
+                  onChanged: (id) {
+                    categoryID.value = id;
+                  },
+                ),
+                BannerSlider(),
+                SquareList(),
+              ],
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: GlobalBottomNavigationBar(
         /// 完成换页操作
