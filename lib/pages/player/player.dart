@@ -28,7 +28,7 @@ class PlayerPage extends StatelessWidget {
     return Scaffold(
       body: Stack(children: [
         Image.asset(
-          'assets/tmp_cover_2.jpg',
+          'assets/tmp_cover_7.jpg',
           width: screen.width,
           height: screen.height,
           fit: BoxFit.fill,

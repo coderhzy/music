@@ -48,6 +48,7 @@ flutter:
     - assets/tmp_cover_4.jpg
     - assets/tmp_cover_5.jpg
     - assets/tmp_cover_6.jpg
+    - assets/tmp_cover_7.jpg
 
     - assets/icon_group.png
     - assets/icon_music.png
@@ -72,4 +73,8 @@ flutter:
     - assets/icon_left_w.png
     - assets/icon_right_w.png
     - assets/icon_share_w.png
+
+    - assets/player-disc.png
+    - assets/player-arm.png
+
 
