@@ -1,3 +1,4 @@
+import 'package:music/util/player_util.dart';
 import 'package:music/util/system_util.dart';
 import 'package:music/util/screen_util.dart';
 
@@ -10,6 +11,8 @@ import 'package:music/pages/square/header.dart';
 import 'package:music/pages/square/category.dart';
 import 'package:music/pages/square/banner_slider.dart';
 import 'package:music/pages/square/square_list.dart';
+
+import 'package:audioplayers/audioplayers.dart';
 
 /// 广场页栏目数据
 final categoryItems = [

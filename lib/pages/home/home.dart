@@ -7,6 +7,7 @@ import 'package:music/pages/home/category.dart';
 import 'package:music/widgets/song_list.dart';
 import 'package:music/widgets/recommend_list.dart';
 import 'package:music/widgets/global_bottom_navigation_bar.dart';
+import 'package:music/util/player_util.dart';
 
 const recommendList1 = [
   {
@@ -145,3 +146,33 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
+/// 测试获取音乐
+///
+// FlatButton(
+// onPressed: () async {
+// var player = getPlayer();
+// int res = await player.play(
+// 'https://codehzy.cn/pname/flutter/music/music_1.mp3');
+//
+// if (res == 1) {
+// print('play success');
+// }
+// },
+// child: Text('播放'),
+// color: Colors.red,
+// ),
+
+/// 测试停止音乐
+// FlatButton(
+//   onPressed: () async {
+//     var player = getPlayer();
+//     var res = await player.stop();
+//
+//     if (res == 1) {
+//       print('成功停止');
+//     }
+//   },
+//   child: Text('停止播放'),
+//   color: Colors.red,
+// ),
