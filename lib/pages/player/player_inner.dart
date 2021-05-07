@@ -9,7 +9,9 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 /// n 度 = n * PI / 180 弧度
 
 class PlayerInner extends HookWidget {
-  const PlayerInner({Key key}) : super(key: key);
+  final bool playing;
+
+  const PlayerInner({Key key, this.playing}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +20,19 @@ class PlayerInner extends HookWidget {
 
     /// 定时器控制弧度
     Timer(Duration(microseconds: 16), () {
-      d.value++;
+      if (playing) {
+        d.value++;
+      }
     });
 
     return Container(
-      margin: EdgeInsets.only(top: screen.calc(182)),
+      height: screen.calc(800),
       child: Stack(
         children: [
           // 唱片
           Positioned(
+            left: screen.calc(42),
+            top: screen.calc(182),
             child: Transform.rotate(
               angle: d.value * pi / 180,
               child: Container(
@@ -53,7 +59,17 @@ class PlayerInner extends HookWidget {
             ),
           ),
           // arm
-          Positioned(child: Image.asset('assets/player-arm.png'))
+          Positioned(
+            left: screen.calc(325),
+            top: screen.calc(24),
+            child: Transform.rotate(
+              angle: playing ? 30 * pi / 180 : 0,
+              origin: Offset(screen.calc(-137), screen.calc(-80)),
+              child: Image.asset('assets/player-arm.png'),
+            ),
+            width: screen.calc(314),
+            height: screen.calc(198),
+          )
         ],
       ),
     );
