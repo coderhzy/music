@@ -19,6 +19,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_hooks: ^0.16.0
+  audioplayers: ^0.18.3
+
 
 flutter:
   uses-material-design: true

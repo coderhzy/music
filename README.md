@@ -326,7 +326,7 @@ class a implements interface1{}
 ------------------------------------------
 
 # music项目开发
-## 阶段一
+## 阶段一 首页
 ```Text
 首页组件构成
 
@@ -348,3 +348,46 @@ global_bottom_navigation_bar.dart // 底部导航栏 & 跳转广场 & 做Hero动
 lib/router.dart  // 页面导航路由
 ```
 ![首页成果图](success/home/home.png)
+
+
+## 阶段二 广场页
+
+待维护
+
+
+### 阶段三 音乐播放上
+#### 1. 基础使用
+audioPlayers
+
+1.播放网络音乐
+var player=AudioPlayer();
+player.play('http://aaa.com/a/b/c/1.mp3');
+
+2.播放本地音乐文件
+var player=AudioPlayer();
+player.play('/xxx/1.mp3', isLocal: true);
+
+3.播放assets音乐——游戏
+var player=AudioCache();
+player.play('assets/1.mp3')
+
+----------------------------------------------------
+
+http请求：
+1.http——普通、不安全
+2.https——加密、安全
+
+----------------------------------------------------
+
+暂时禁用“仅能通过https通信”特性
+
+1.打开项目配置文件
+android/app/src/AndroidManifest.xml
+
+2.添加连接网络权限
+<uses-permission android:name="android.permission.INTERNET" />
+<application
+...
+android:usesCleartextTraffic="true"
+
+----------------------------------------------------
