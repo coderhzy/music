@@ -58,11 +58,14 @@ class PlayerPage extends StatelessWidget {
             bottom: 0,
             width: screen.width,
             child: Container(
-              color: Colors.red,
+              // color: Colors.red,
               child: Column(
                 children: [
                   ControlPageOne(),
-                  ProgressPage(),
+                  ProgressPage(
+                    total: 300,
+                    current: 100,
+                  ),
                   ControlPageSecond(),
                 ],
               ),
