@@ -68,3 +68,8 @@ flutter:
     - assets/tmp_square_cover_4.png
     - assets/tmp_square_cover_5.png
     - assets/tmp_square_cover_6.png
+
+    - assets/icon_left_w.png
+    - assets/icon_right_w.png
+    - assets/icon_share_w.png
+
