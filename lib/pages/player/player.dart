@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:music/util/screen_util.dart';
 import 'package:music/util/player_util.dart';
@@ -24,20 +26,36 @@ class PlayerPage extends StatelessWidget {
     print(args);
 
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.only(
-            top: screen.top, left: screen.calc(24), right: screen.calc(24)),
-        decoration: BoxDecoration(color: Color(0x99000000)),
-        child: Column(
-          children: [
-            Header(),
-            PlayerInner(),
-            ControlPageOne(),
-            ProgressPage(),
-            ControlPageSecond(),
-          ],
+      body: Stack(children: [
+        Image.asset(
+          'assets/tmp_cover_2.jpg',
+          width: screen.width,
+          height: screen.height,
+          fit: BoxFit.fill,
         ),
-      ),
+
+        /// 播放器图片毛玻璃
+        Positioned.fill(
+            child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
+          child: Container(
+            color: Colors.black.withOpacity(0.2),
+          ),
+        )),
+        Container(
+          padding: EdgeInsets.only(
+              top: screen.top, left: screen.calc(24), right: screen.calc(24)),
+          child: Column(
+            children: [
+              Header(),
+              PlayerInner(),
+              ControlPageOne(),
+              ProgressPage(),
+              ControlPageSecond(),
+            ],
+          ),
+        ),
+      ]),
     );
   }
 }
