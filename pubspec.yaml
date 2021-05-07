@@ -61,7 +61,18 @@ flutter:
     - assets/icon_Music_disc_b.png
     - assets/icon_person_b.png
     - assets/icon_video_b.png
-    - assets/icon_left_arrow.png
+    - assets/icon_heart_w.png
+    - assets/icon_download_w.png
+    - assets/icon_bell_w.png
+    - assets/icon_message_w.png
+    - assets/icon_3dots_w.png
+    - assets/icon-backward-w.png
+    - assets/icon-forward-w.png
+    - assets/icon-pause-w.png
+    - assets/icon-playlist-w.png
+    - assets/icon-playloop-w.png
+    - assets/icon-play-w.png
+
 
     - assets/tmp_square_cover_1.png
     - assets/tmp_square_cover_2.png
@@ -71,6 +82,7 @@ flutter:
     - assets/tmp_square_cover_6.png
 
     - assets/icon_left_w.png
+    - assets/icon_left_arrow.png
     - assets/icon_right_w.png
     - assets/icon_share_w.png
 
