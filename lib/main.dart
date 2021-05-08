@@ -1,10 +1,13 @@
 import 'package:music/util/system_util.dart';
 import 'package:flutter/material.dart';
 import 'package:music/router.dart';
+import 'package:music/util/play_state.dart';
 
 /// main -> runApp入口
 void main() {
-  runApp(App());
+  runApp(PlayStateProvider(
+    child: App(),
+  ));
 
   /// 判断Android去除最上方栏
   setStatusBarStyle(Brightness.light);

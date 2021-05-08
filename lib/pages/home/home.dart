@@ -7,7 +7,7 @@ import 'package:music/pages/home/category.dart';
 import 'package:music/widgets/song_list.dart';
 import 'package:music/widgets/recommend_list.dart';
 import 'package:music/widgets/global_bottom_navigation_bar.dart';
-import 'package:music/util/player_util.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 const recommendList1 = [
   {

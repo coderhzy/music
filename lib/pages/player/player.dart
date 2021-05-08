@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:music/util/screen_util.dart';
-import 'package:music/util/player_util.dart';
+import 'package:music/util/play_state.dart';
 
 /// player区
 import 'package:music/pages/player/header.dart';
@@ -11,9 +11,8 @@ import 'package:music/pages/player/control_panel_first.dart';
 import 'package:music/pages/player/control_panel_second.dart';
 import 'package:music/pages/player/progress.dart';
 import 'package:music/util/system_util.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 
-class PlayerPage extends HookWidget {
+class PlayerPage extends StatelessWidget {
   const PlayerPage({Key key}) : super(key: key);
 
   @override
@@ -22,7 +21,10 @@ class PlayerPage extends HookWidget {
     final args = ModalRoute.of(context).settings.arguments as Map;
 
     /// 使用hook，暂时控制播放按钮的状态
-    final playing = useState(false);
+    // final playing = useState(false);
+    final playState = PlayState.of(context);
+    // 单例
+    // final player = getPlayer();
 
     /// 判断Android去除最上方栏
     setStatusBarStyle(Brightness.light);
@@ -50,9 +52,7 @@ class PlayerPage extends HookWidget {
           child: Column(
             children: [
               Header(),
-              PlayerInner(
-                playing: playing.value,
-              ),
+              PlayerInner(playing: playState.playing),
             ],
           ),
         ),
@@ -73,16 +73,17 @@ class PlayerPage extends HookWidget {
                     },
                   ),
                   ProgressPage(
-                    total: 300,
-                    current: 100,
+                    total: playState.total,
+                    current: playState.current,
                   ),
                   ControlPageSecond(
-                    playing: playing.value,
+                    playing: playState.playing,
                     onPlayTap: () {
-                      playing.value = true;
+                      playState.player.play(
+                          'https://codehzy.cn/pname/flutter/music/music_0.mp3');
                     },
-                    onPauseTap: () {
-                      playing.value = false;
+                    onPauseTap: () async {
+                      await playState.player.pause();
                     },
                     onBackward: () {
                       print('back');

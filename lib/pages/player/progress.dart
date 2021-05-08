@@ -5,8 +5,7 @@ class ProgressPage extends StatelessWidget {
   final int current;
   final int total;
 
-  const ProgressPage({Key key, this.current = 0, this.total = 1})
-      : super(key: key);
+  const ProgressPage({Key key, this.current, this.total}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,14 +13,19 @@ class ProgressPage extends StatelessWidget {
     final W = 558.0;
 
     //左侧字
-    final curTime =
-        '${(current ~/ 60).toString().padLeft(2, '0')}:${(current % 60).toString().padLeft(2, '0')}';
-    //右侧字
-    final totalTime =
-        '${(total ~/ 60).toString().padLeft(2, '0')}:${(total % 60).toString().padLeft(2, '0')}';
+    final curTime = current == null
+        ? '--:--'
+        : '${(current ~/ 60).toString().padLeft(2, '0')}:${(current % 60).toString().padLeft(2, '0')}';
 
-    //小球
-    final curWidth = screen.calc((W - 18) * current / total);
+    //右侧字
+    final totalTime = total == null
+        ? '--:--'
+        : '${(total ~/ 60).toString().padLeft(2, '0')}:${(total % 60).toString().padLeft(2, '0')}';
+
+    //小球，此处double类型有坑
+    double curWidth = (current == null || total == null || total == 0)
+        ? 0
+        : screen.calc((W - 18) * current / total);
 
     return Container(
       // color: Colors.red,
