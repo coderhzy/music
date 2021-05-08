@@ -11,8 +11,9 @@ import 'package:music/pages/player/control_panel_first.dart';
 import 'package:music/pages/player/control_panel_second.dart';
 import 'package:music/pages/player/progress.dart';
 import 'package:music/util/system_util.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
-class PlayerPage extends StatelessWidget {
+class PlayerPage extends HookWidget {
   const PlayerPage({Key key}) : super(key: key);
 
   @override
@@ -20,10 +21,11 @@ class PlayerPage extends StatelessWidget {
     final screen = Screen(context);
     final args = ModalRoute.of(context).settings.arguments as Map;
 
+    /// 使用hook，暂时控制播放按钮的状态
+    final playing = useState(false);
+
     /// 判断Android去除最上方栏
     setStatusBarStyle(Brightness.light);
-
-    print(args);
 
     return Scaffold(
       body: Stack(children: [
@@ -49,7 +51,7 @@ class PlayerPage extends StatelessWidget {
             children: [
               Header(),
               PlayerInner(
-                playing: true,
+                playing: playing.value,
               ),
             ],
           ),
@@ -61,12 +63,34 @@ class PlayerPage extends StatelessWidget {
               // color: Colors.red,
               child: Column(
                 children: [
-                  ControlPageOne(),
+                  ControlPageOne(
+                    heart: true,
+                    onDownload: () {
+                      print('a');
+                    },
+                    onBell: () {
+                      print('b');
+                    },
+                  ),
                   ProgressPage(
                     total: 300,
                     current: 100,
                   ),
-                  ControlPageSecond(),
+                  ControlPageSecond(
+                    playing: playing.value,
+                    onPlayTap: () {
+                      playing.value = true;
+                    },
+                    onPauseTap: () {
+                      playing.value = false;
+                    },
+                    onBackward: () {
+                      print('back');
+                    },
+                    onForward: () {
+                      print('forward');
+                    },
+                  ),
                 ],
               ),
             ))

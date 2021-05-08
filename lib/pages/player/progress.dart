@@ -24,7 +24,7 @@ class ProgressPage extends StatelessWidget {
     final curWidth = screen.calc((W - 18) * current / total);
 
     return Container(
-      color: Colors.red,
+      // color: Colors.red,
       margin: EdgeInsets.only(top: screen.calc(50)),
       height: screen.calc(30),
       child: DefaultTextStyle(

@@ -1,20 +1,25 @@
-// import 'package:flutter/material.dart';
-// import 'package:music/util/screen_util.dart';
-//
-// class ControlPageSecond extends StatelessWidget {
-//   const ControlPageSecond({Key key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     final screen = Screen(context);
-//     return Text('ControlPageSecond');
-//   }
-// }
-
 import 'package:flutter/material.dart';
 import 'package:music/util/screen_util.dart';
+import 'package:music/widgets/img_button.dart';
 
 class ControlPageSecond extends StatelessWidget {
+  final VoidCallback onBackward;
+  final VoidCallback onForward;
+  final VoidCallback onPlaylist;
+  final VoidCallback onPlayTap;
+  final VoidCallback onPauseTap;
+  final bool playing;
+
+  ControlPageSecond(
+      {Key key,
+      this.onBackward,
+      this.onForward,
+      this.onPlaylist,
+      this.onPlayTap,
+      this.onPauseTap,
+      this.playing})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final screen = Screen(context);
@@ -30,8 +35,10 @@ class ControlPageSecond extends StatelessWidget {
                 width: screen.calc(55), height: screen.calc(55)),
           ),
           Center(
-            child: Image.asset('assets/icon-backward-w.png',
-                width: screen.calc(55), height: screen.calc(55)),
+            child: ImgButton('assets/icon-backward-w.png',
+                onTap: onBackward,
+                width: screen.calc(55),
+                height: screen.calc(55)),
           ),
           Container(
             height: screen.calc(120),
@@ -40,17 +47,29 @@ class ControlPageSecond extends StatelessWidget {
                 border: Border.all(width: screen.calc(2), color: Colors.white),
                 borderRadius: BorderRadius.circular(screen.calc(60))),
             child: Center(
-              child: Image.asset('assets/icon-pause-w.png',
-                  width: screen.calc(55), height: screen.calc(55)),
+              child: playing
+                  ? GestureDetector(
+                      onTap: onPauseTap,
+                      child: Image.asset('assets/icon-pause-w.png',
+                          width: screen.calc(55), height: screen.calc(55)),
+                    )
+                  : GestureDetector(
+                      onTap: onPlayTap,
+                      child: Image.asset('assets/icon-play-w.png',
+                          width: screen.calc(55), height: screen.calc(55))),
             ),
           ),
           Center(
-            child: Image.asset('assets/icon-forward-w.png',
-                width: screen.calc(55), height: screen.calc(55)),
+            child: ImgButton('assets/icon-forward-w.png',
+                onTap: onForward,
+                width: screen.calc(55),
+                height: screen.calc(55)),
           ),
           Center(
-            child: Image.asset('assets/icon-playlist-w.png',
-                width: screen.calc(55), height: screen.calc(55)),
+            child: ImgButton('assets/icon-playlist-w.png',
+                onTap: onPlaylist,
+                width: screen.calc(55),
+                height: screen.calc(55)),
           ),
         ],
       ),

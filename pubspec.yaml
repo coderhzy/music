@@ -62,6 +62,7 @@ flutter:
     - assets/icon_person_b.png
     - assets/icon_video_b.png
     - assets/icon_heart_w.png
+    - assets/icon_heart_r.png
     - assets/icon_download_w.png
     - assets/icon_bell_w.png
     - assets/icon_message_w.png
