@@ -386,8 +386,17 @@ android/app/src/AndroidManifest.xml
 
 2.添加连接网络权限
 <uses-permission android:name="android.permission.INTERNET" />
-<application
+<applicatio
 ...
 android:usesCleartextTraffic="true"
 
 ----------------------------------------------------
+
+### 音乐播放器下
+待维护
+![播放页成果图](success/player/播放页.png)
+
+
+### 登录页开发
+**今日遇坑，在使用FlatButton的时候，想要背景颜色有效，怎么onPressed点击事件则必须添加，否则按钮的颜色无效。**
+![登录欢迎页成果图](success/login_home/登录页.png)

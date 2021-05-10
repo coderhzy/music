@@ -90,4 +90,11 @@ flutter:
     - assets/player-disc.png
     - assets/player-arm.png
 
+    - assets/icon_qq.png
+    - assets/icon_wechat.png
+    - assets/icon_login_logo.png
+    - assets/icon_weibo.png
+    - assets/icon_easy.png
+    - assets/icon_apple.png
+
 

@@ -72,6 +72,8 @@ class GlobalBottomNavigationBar extends HookWidget {
                   case 2:
                     Navigator.pushNamed(context, '/square');
                     break;
+                  case 4:
+                    Navigator.pushNamed(context, '/login');
                 }
               },
             ))).values.toList(),
