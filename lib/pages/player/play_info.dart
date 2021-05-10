@@ -1,6 +1,21 @@
 import 'package:music/util/screen_util.dart';
 import 'package:flutter/material.dart';
 
+
+const list1Items=[
+  {'icon': Icons.person, 'text': '歌手：Keane(基音乐队)'},
+  {'icon': Icons.disc_full, 'text': '专辑：Somewhere Only We Know'},
+  {'icon': Icons.link, 'text': '来源：歌单「钢琴摇滚 | 浪子赠予xxx的xxx」'},
+  {'icon': Icons.videocam, 'text': '相关视频'},
+];
+
+const list2Items=[
+  {'icon': Icons.cloud, 'text': '云贝推歌(已有12人推荐)'},
+  {'icon': Icons.shopping_cart, 'text': '单曲购买'},
+  {'icon': Icons.rate_review, 'text': '评分：4.95分 (12人已评)'},
+  {'icon': Icons.add, 'text': '加入到我的歌单'},
+];
+
 void showPlayInfo(BuildContext context) {
   showGeneralDialog(
       context: context,
@@ -31,7 +46,7 @@ class _PlayInfo extends StatelessWidget {
     return Container(
       height: screen.height * .75,
       width: screen.width,
-      padding: EdgeInsets.only(left: screen.calc(32), right: screen.calc(32)),
+      padding: EdgeInsets.only(left: screen.calc(32), right: screen.calc(32),top: screen.calc(40)),
       decoration: BoxDecoration(
           color: Color(0xfff5f5f5),
           borderRadius: BorderRadius.only(
@@ -42,9 +57,9 @@ class _PlayInfo extends StatelessWidget {
           children: [
             _Header(),
             Container(height: screen.calc(45)),
-            _List(),
+            _List(items: list1Items,),
             Container(height: screen.calc(16)),
-            _List(),
+            _List(items: list2Items,),
             Container(height: screen.calc(16)),
             _Footer(),
           ],
@@ -61,9 +76,7 @@ class _Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screen = Screen(context);
-    return Padding(
-      padding: EdgeInsets.only(top: screen.calc(40)),
-      child: Column(
+     return Column(
         children: [
           /// header上方开通VIP畅享
           Row(
@@ -87,7 +100,7 @@ class _Header extends StatelessWidget {
               Spacer(),
               GestureDetector(
                 onTap: () {
-                  print('vip');
+                  Navigator.pop(context);
                 },
                 child: Container(
                   width: screen.calc(182),
@@ -125,8 +138,7 @@ class _Header extends StatelessWidget {
             ),
           )
         ],
-      ),
-    );
+      );
   }
 }
 
@@ -135,7 +147,7 @@ class _HeaderBtn extends StatelessWidget {
   final String title;
   final Icon icon;
 
-  const _HeaderBtn({Key key, this.title = '', this.icon}) : super(key: key);
+  const _HeaderBtn({Key key, this.title, this.icon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -161,14 +173,74 @@ class _HeaderBtn extends StatelessWidget {
 
 /// 弹出框2：中间List
 class _List extends StatelessWidget {
-  const _List({Key key}) : super(key: key);
+  final List<Map> items;
+
+  const _List({Key key,this.items}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final screen = Screen(context);
-    return Text('list');
+    final items=this.items!=null?this.items:[];
+
+    return Container(
+      width: screen.calc(686),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(screen.calc(20)),
+      ),
+      child: Column(
+        children: items.map((item) => _ListItem(
+          icon: item['icon'],
+          title: item['text'],
+        )).toList(),
+      ),
+    );
   }
 }
+
+class _ListItem extends StatelessWidget {
+  final icon;
+  final title;
+
+  const _ListItem({Key key,this.icon,this.title}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final screen = Screen(context);
+    return Container(
+      child: Row(
+        children: [
+          Container(
+            width: screen.calc(108),
+            child: Icon(icon),
+          ),
+          Expanded(
+            child: Container(
+            padding: EdgeInsets.only(right: screen.calc(66)),
+            height: screen.calc(99),
+            alignment: Alignment.centerLeft,
+            /// 下方边框，注意学习
+            decoration: BoxDecoration(
+              border: Border(bottom: BorderSide(
+                color: Color(0xffe6e6e6)
+              ))
+            ),
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: screen.calc(32),
+              ),
+              softWrap: false,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ))
+        ],
+      ),
+    );
+  }
+}
+
+
 
 /// 弹出框2: _Footer
 class _Footer extends StatelessWidget {
@@ -177,6 +249,32 @@ class _Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screen = Screen(context);
-    return Text('footer');
+    return GestureDetector(
+      onTap: (){
+        Navigator.pop(context);
+      },
+      child: Container(
+        width: screen.calc(686),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(screen.calc(20)),
+        ),
+        child: Container(
+          padding: EdgeInsets.only(right: screen.calc(66)),
+          height: screen.calc(99),
+          alignment: Alignment.centerLeft,
+          child: Center(
+            child: Text(
+              '关闭',
+              style: TextStyle(
+                fontSize: screen.calc(32),
+              ),
+              softWrap: false,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
