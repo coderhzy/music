@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:music/pages/player/play_list.dart';
 import 'package:music/util/screen_util.dart';
 import 'package:music/util/play_state.dart';
 
@@ -90,6 +91,9 @@ class PlayerPage extends StatelessWidget {
                     },
                     onForward: () {
                       print('forward');
+                    },
+                    onPlaylist: () {
+                      showPlayList(context);
                     },
                   ),
                 ],
