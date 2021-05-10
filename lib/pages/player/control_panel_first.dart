@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:music/util/screen_util.dart';
 import 'package:music/widgets/img_button.dart';
@@ -17,6 +19,7 @@ class ControlPageOne extends StatelessWidget {
   final VoidCallback onHeart;
   final VoidCallback onUnHeart;
   final VoidCallback onBell;
+  final VoidCallback onSetting;
 
   const ControlPageOne(
       {Key key,
@@ -24,7 +27,8 @@ class ControlPageOne extends StatelessWidget {
       this.onDownload,
       this.onHeart,
       this.onUnHeart,
-      this.onBell})
+      this.onBell,
+      this.onSetting})
       : super(key: key);
 
   @override
@@ -74,9 +78,10 @@ class ControlPageOne extends StatelessWidget {
                 width: screen.calc(55), height: screen.calc(55)),
           ),
           Center(
-            child: Image.asset('assets/icon_3dots_w.png',
-                width: screen.calc(55), height: screen.calc(55)),
-          ),
+              child: ImgButton('assets/icon_3dots_w.png',
+                  onTap: onSetting,
+                  width: screen.calc(55),
+                  height: screen.calc(55))),
         ],
       ),
     );
