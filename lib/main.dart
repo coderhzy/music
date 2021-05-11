@@ -9,6 +9,7 @@ void main() {
     child: App(),
   ));
 
+
   /// 判断Android去除最上方栏
   setStatusBarStyle(Brightness.light);
 }
