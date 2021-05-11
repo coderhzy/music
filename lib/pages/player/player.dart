@@ -43,11 +43,11 @@ class PlayerPage extends StatelessWidget {
         /// 播放器图片毛玻璃
         Positioned.fill(
             child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
-          child: Container(
-            color: Colors.black.withOpacity(0.2),
-          ),
-        )),
+              filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
+              child: Container(
+                color: Colors.black.withOpacity(0.2),
+              ),
+            )),
         Container(
           padding: EdgeInsets.only(
               top: screen.top, left: screen.calc(24), right: screen.calc(24)),
