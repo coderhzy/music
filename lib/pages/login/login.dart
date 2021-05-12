@@ -39,7 +39,11 @@ class LoginPage extends StatelessWidget {
           });
         },
       ),
-      3: LoginSendVerify()
+      3: LoginSendVerify(
+        onFinished: (code){
+          print(code);
+        },
+      )
     };
 
     return steps[step];
