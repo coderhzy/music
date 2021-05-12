@@ -7,6 +7,9 @@ import 'package:music/pages/home/category.dart';
 import 'package:music/widgets/song_list.dart';
 import 'package:music/widgets/recommend_list.dart';
 import 'package:music/widgets/global_bottom_navigation_bar.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_redux_hooks/flutter_redux_hooks.dart';
+import 'package:music/store.dart';
 
 const recommendList1 = [
   {
@@ -92,10 +95,11 @@ const songList1 = [
   },
 ];
 
-class HomePage extends StatelessWidget {
+class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final screen = Screen(context);
+    final nickname=useSelector<StoreState, String>((state)=>state.nickname);
 
     /// 判断Android去除最上方栏
     setStatusBarStyle(Brightness.light);
@@ -110,6 +114,7 @@ class HomePage extends StatelessWidget {
             padding: EdgeInsets.only(top: screen.top + screen.calc(7)),
             child: Column(
               children: [
+                Text(nickname!= null?nickname:'<未登录>'),
                 Header(),
                 MyBanner(),
                 CateGory(),

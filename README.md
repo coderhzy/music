@@ -400,3 +400,8 @@ android:usesCleartextTraffic="true"
 ### 登录页开发
 **今日遇坑，在使用FlatButton的时候，想要背景颜色有效，怎么onPressed点击事件则必须添加，否则按钮的颜色无效。**
 ![登录欢迎页成果图](success/login_home/登录页.png)
+
+
+### 注册绑定设置昵称
+初步完成并且完成redux数据共享
+![注册绑定设置昵称](success/login/注册验证码完成.2021-05-12%2016_26_28.gif);

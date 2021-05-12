@@ -1,13 +1,15 @@
+import 'package:music/store.dart';
 import 'package:music/util/system_util.dart';
 import 'package:flutter/material.dart';
 import 'package:music/router.dart';
 import 'package:music/util/play_state.dart';
+import 'package:flutter_redux_hooks/flutter_redux_hooks.dart';
 
 /// main -> runApp入口
 void main() {
-  runApp(PlayStateProvider(
+  runApp(StoreProvider<StoreState>(store: createStore(), child: PlayStateProvider(
     child: App(),
-  ));
+  )));
 
 
   /// 判断Android去除最上方栏

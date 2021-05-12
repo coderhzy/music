@@ -8,7 +8,7 @@ import 'package:music/pages/login/header.dart';
 
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-class LoginSendVerify extends HookWidget {
+class LoginSendVerify extends StatelessWidget {
   final onFinished;
 
   LoginSendVerify({Key key,this.onFinished}): super(key: key);
@@ -17,30 +17,27 @@ class LoginSendVerify extends HookWidget {
   Widget build(BuildContext context) {
     final screen = Screen(context);
 
-    return Hero(
-      tag: 'login_send_verifyCode',
-      child: Scaffold(
-        body: SingleChildScrollView(
-            child: Container(
-          padding: EdgeInsets.only(
-              top: screen.top, left: screen.calc(32), right: screen.calc(32)),
-          child: Column(
-            children: [
-              Header(title: '手机号验证'),
-              Container(
-                child: Column(
-                  children: [
-                    _Verify(),
-                    _InputVerCode(
-                        onFinished:this.onFinished
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-        )),
-      ),
+    return Scaffold(
+      body: SingleChildScrollView(
+          child: Container(
+        padding: EdgeInsets.only(
+            top: screen.top, left: screen.calc(32), right: screen.calc(32)),
+        child: Column(
+          children: [
+            Header(title: '手机号验证'),
+            Container(
+              child: Column(
+                children: [
+                  _Verify(),
+                  _InputVerCode(
+                      onFinished:this.onFinished
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      )),
     );
   }
 }
